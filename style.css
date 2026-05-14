@@ -1,0 +1,491 @@
+/* ===================================================
+   CATÁLOGO DE LIVROS — style.css
+   Tema: Editorial Literário
+   =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --cor-fundo:       #f7f3ee;
+  --cor-fundo-alt:   #eee8df;
+  --cor-primaria:    #1a1a2e;
+  --cor-secundaria:  #7c3d52;
+  --cor-destaque:    #b5541e;
+  --cor-texto:       #2c2c3a;
+  --cor-texto-leve:  #6b6b80;
+  --cor-borda:       #d4cbbe;
+  --cor-branco:      #ffffff;
+  --fonte-titulo:    'Playfair Display', Georgia, serif;
+  --fonte-corpo:     'DM Sans', sans-serif;
+  --raio:            6px;
+  --sombra:          0 2px 16px rgba(26,26,46,.10);
+  --sombra-hover:    0 6px 28px rgba(26,26,46,.16);
+  --transicao:       0.25s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-size: 1rem;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img { display: block; max-width: 100%; }
+
+a {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  transition: color var(--transicao);
+}
+a:hover { color: var(--cor-destaque); text-decoration: underline; }
+
+/* ---------- HEADER / NAV ---------- */
+header {
+  background-color: var(--cor-primaria);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.3);
+}
+header .header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+header .logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.45rem;
+  color: var(--cor-fundo);
+  letter-spacing: 0.02em;
+}
+header .logo span { color: var(--cor-destaque); }
+
+nav ul { list-style: none; display: flex; gap: 2rem; }
+nav ul li a {
+  color: #c8c0b4;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color var(--transicao);
+  text-decoration: none;
+}
+nav ul li a:hover,
+nav ul li a.ativo { color: var(--cor-destaque); }
+
+/* ---------- MAIN ---------- */
+main {
+  flex: 1;
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+/* ---------- HERO ---------- */
+.secao-hero {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, #2d1b34 100%);
+  color: var(--cor-fundo);
+  padding: 3rem 2.5rem;
+  border-radius: var(--raio);
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.secao-hero::before {
+  content: '📚';
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 6rem;
+  opacity: 0.12;
+}
+.secao-hero h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.secao-hero p { color: #b0a8a0; font-size: 1rem; }
+
+/* ---------- TABELA ---------- */
+.secao-lista {
+  background: var(--cor-branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.secao-lista h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  padding: 1.4rem 1.8rem;
+  border-bottom: 1px solid var(--cor-borda);
+  color: var(--cor-primaria);
+}
+
+table { width: 100%; border-collapse: collapse; }
+thead { background-color: var(--cor-fundo-alt); }
+thead th {
+  padding: 0.85rem 1.2rem;
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cor-texto-leve);
+  border-bottom: 2px solid var(--cor-borda);
+}
+tbody tr {
+  border-bottom: 1px solid var(--cor-fundo-alt);
+  transition: background-color var(--transicao);
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background-color: #faf7f3; }
+tbody td { padding: 1rem 1.2rem; vertical-align: middle; }
+
+/* Capa miniatura (na tabela) + fallback CSS-only via ::after.
+   O ::after de <img> só renderiza quando a imagem falha em carregar. */
+.capa-miniatura {
+  width: 48px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo-alt);
+  position: relative;
+  overflow: hidden;
+  /* tipografia que aparece como fallback */
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 0.55rem;
+  color: transparent;
+}
+.capa-miniatura::after {
+  content: attr(alt);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4px 3px;
+  line-height: 1.15;
+  background: linear-gradient(140deg, #1a1a2e 0%, #3a1f2d 55%, #7c3d52 100%);
+  color: #f7f3ee;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 0.55rem;
+}
+
+.titulo-livro {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: var(--cor-primaria);
+  font-size: 1rem;
+}
+.autor-livro { color: var(--cor-texto-leve); font-size: 0.9rem; }
+
+.descricao-resumo {
+  font-size: 0.85rem;
+  color: var(--cor-texto-leve);
+  line-height: 1.5;
+  max-width: 340px;
+}
+
+.link-detalhe {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  padding: 0.35rem 0.9rem;
+  border: 1.5px solid var(--cor-secundaria);
+  border-radius: var(--raio);
+  transition: background-color var(--transicao), color var(--transicao);
+  white-space: nowrap;
+}
+.link-detalhe:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
+  text-decoration: none;
+}
+
+/* ---------- FORMULÁRIO ---------- */
+.secao-form {
+  background: var(--cor-branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 2.5rem;
+  max-width: 580px;
+  margin: 0 auto;
+}
+.secao-form h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 0.4rem;
+}
+.secao-form .subtitulo {
+  color: var(--cor-texto-leve);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.grupo-campo { margin-bottom: 1.5rem; }
+
+label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cor-texto-leve);
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+  outline: none;
+}
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 3px rgba(124,61,82,.12);
+}
+input[type="file"] { cursor: pointer; }
+textarea { resize: vertical; min-height: 100px; }
+
+.btn-principal {
+  display: block;
+  width: 100%;
+  padding: 0.95rem;
+  background-color: var(--cor-primaria);
+  color: var(--cor-fundo);
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--raio);
+  cursor: pointer;
+  transition: background-color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+  margin-top: 0.5rem;
+}
+.btn-principal:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-1px);
+  box-shadow: var(--sombra-hover);
+}
+.btn-principal:active { transform: translateY(0); }
+
+/* ---------- DETALHE ---------- */
+.secao-detalhe {
+  background: var(--cor-branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+.detalhe-topo {
+  background: linear-gradient(135deg, var(--cor-primaria), #3a1f2d);
+  padding: 2rem 2.5rem;
+  color: var(--cor-fundo);
+}
+.detalhe-topo .breadcrumb {
+  font-size: 0.8rem;
+  color: #8a8099;
+  margin-bottom: 1.2rem;
+}
+.detalhe-topo .breadcrumb a { color: #8a8099; }
+.detalhe-topo .breadcrumb a:hover { color: var(--cor-destaque); }
+
+.detalhe-corpo {
+  display: flex;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  align-items: flex-start;
+}
+.detalhe-capa { flex-shrink: 0; }
+
+/* Capa grande no detalhe + mesmo truque CSS-only para fallback */
+.detalhe-capa img {
+  width: 160px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--raio);
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  border: 3px solid var(--cor-branco);
+  margin-top: -60px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: transparent;
+  background-color: var(--cor-fundo-alt);
+}
+.detalhe-capa img::after {
+  content: attr(alt);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  line-height: 1.15;
+  background: linear-gradient(140deg, #1a1a2e 0%, #3a1f2d 55%, #7c3d52 100%);
+  color: #f7f3ee;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.detalhe-info { flex: 1; }
+.detalhe-info h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.9rem;
+  color: var(--cor-primaria);
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+.detalhe-info .autor-tag {
+  color: var(--cor-secundaria);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+.detalhe-info dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.detalhe-info dt {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cor-texto-leve);
+  padding-top: 2px;
+}
+.detalhe-info dd { color: var(--cor-texto); }
+
+.rotulo-temas {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cor-texto-leve);
+  margin-bottom: 0.3rem;
+}
+
+.descricao-livro {
+  background-color: var(--cor-fundo);
+  border-left: 3px solid var(--cor-secundaria);
+  padding: 1rem 1.2rem;
+  border-radius: 0 var(--raio) var(--raio) 0;
+  font-style: italic;
+  color: var(--cor-texto-leve);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  border: 1.5px solid var(--cor-secundaria);
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--raio);
+  transition: background-color var(--transicao), color var(--transicao);
+}
+.btn-voltar:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-branco);
+  text-decoration: none;
+}
+
+.generos-lista {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin: 0.5rem 0 1.2rem;
+  color: var(--cor-texto);
+}
+.generos-lista li { margin-bottom: 0.2rem; font-size: 0.9rem; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  background-color: var(--cor-primaria);
+  color: #7a7490;
+  text-align: center;
+  padding: 1.4rem 2rem;
+  font-size: 0.82rem;
+  margin-top: auto;
+}
+footer strong { color: var(--cor-destaque); }
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 800px) {
+  header { padding: 0 1rem; }
+  header .logo { font-size: 1.1rem; }
+  nav ul { gap: 1rem; }
+  nav ul li a { font-size: 0.78rem; }
+
+  main { padding: 0 1rem; margin: 1.5rem auto; }
+
+  .secao-hero { padding: 2rem 1.5rem; }
+  .secao-hero h1 { font-size: 1.5rem; }
+  .secao-hero::before { display: none; }
+
+  /* esconde colunas de capa e descrição em telas pequenas */
+  table thead th:first-child,
+  table tbody td:first-child,
+  table thead th:nth-child(5),
+  table tbody td:nth-child(5) { display: none; }
+
+  .secao-form { padding: 1.5rem; }
+
+  .detalhe-corpo {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  .detalhe-capa img {
+    margin-top: -40px;
+    width: 120px;
+    height: 165px;
+    font-size: 1rem;
+  }
+  .detalhe-capa img::after { font-size: 1rem; padding: 1rem; }
+  .detalhe-info h1 { font-size: 1.4rem; }
+}

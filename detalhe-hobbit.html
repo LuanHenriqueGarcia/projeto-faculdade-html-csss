@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalhes do livro O Hobbit de J.R.R. Tolkien.">
+  <title>O Hobbit — Catálogo de Livros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <span class="logo">Catálogo<span>.</span>Livros</span>
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cadastrar.html">Cadastrar livro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="secao-detalhe" aria-label="Detalhe do livro">
+
+      <div class="detalhe-topo">
+        <nav class="breadcrumb" aria-label="Trilha de navegação">
+          <a href="index.html">Home</a> &rsaquo; <span>O Hobbit</span>
+        </nav>
+        <p style="color:#b0a8a0; font-size:0.9rem;">Detalhes do livro selecionado</p>
+      </div>
+
+      <div class="detalhe-corpo">
+
+        <aside class="detalhe-capa">
+          <img src="hobbit.png" alt="O Hobbit">
+        </aside>
+
+        <section class="detalhe-info" aria-label="Informações do livro">
+          <h1>O Hobbit</h1>
+          <p class="autor-tag">J.R.R. Tolkien</p>
+
+          <dl>
+            <dt>Autor</dt>      <dd>J.R.R. Tolkien</dd>
+            <dt>Gênero</dt>     <dd>Fantasia / Aventura</dd>
+            <dt>Publicação</dt> <dd>21 de setembro de 1937</dd>
+            <dt>Páginas</dt>    <dd>310 páginas</dd>
+            <dt>Editora</dt>    <dd>George Allen &amp; Unwin</dd>
+          </dl>
+
+          <p class="rotulo-temas">Temas abordados</p>
+          <ul class="generos-lista">
+            <li>Amizade e coragem</li>
+            <li>A jornada do herói</li>
+            <li>Mundos de fantasia épica</li>
+            <li>Ganância e redenção</li>
+          </ul>
+
+          <blockquote class="descricao-livro">
+            Bilbo Bolseiro levava uma vida tranquila no Condado até que o mago Gandalf bate à
+            sua porta e o envolve em uma expedição improvável. Ao lado de treze anões liderados
+            por Thorin Escudo-de-Carvalho, parte rumo à Montanha Solitária para recuperar o
+            tesouro guardado pelo dragão Smaug. No caminho enfrenta trolls, orcs, aranhas
+            gigantes e Gollum — de quem obtém um anel mágico que mudará para sempre o destino
+            da Terra-Média. Uma obra fundacional da fantasia moderna sobre coragem, identidade
+            e o valor do inesperado.
+          </blockquote>
+
+          <a href="index.html" class="btn-voltar" aria-label="Voltar para a lista de livros">
+            &#8592; Voltar para a lista
+          </a>
+        </section>
+
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <strong>Catálogo de Livros</strong> — Projeto acadêmico UniALFA</p>
+  </footer>
+
+</body>
+</html>

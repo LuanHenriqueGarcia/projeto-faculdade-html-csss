@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo de Livros — explore e gerencie sua coleção de livros favoritos.">
+  <title>Catálogo de Livros — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <span class="logo">Catálogo<span>.</span>Livros</span>
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html" class="ativo">Home</a></li>
+          <li><a href="cadastrar.html">Cadastrar livro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="secao-hero" aria-label="Bem-vindo ao catálogo">
+      <h1>Sua biblioteca<br>em um só lugar</h1>
+      <p>Explore, cadastre e acompanhe seus livros favoritos.</p>
+    </section>
+
+    <section class="secao-lista" aria-label="Lista de livros cadastrados">
+      <h2>Livros cadastrados</h2>
+
+      <table aria-label="Tabela de livros cadastrados">
+        <thead>
+          <tr>
+            <th scope="col">Capa</th>
+            <th scope="col">Título</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Gênero</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td><img src="hobbit.png" alt="O Hobbit" class="capa-miniatura"></td>
+            <td><span class="titulo-livro">O Hobbit</span></td>
+            <td class="autor-livro">J.R.R. Tolkien</td>
+            <td class="autor-livro">Fantasia</td>
+            <td class="descricao-resumo">
+              Bilbo Bolseiro, um hobbit tranquilo, é recrutado por Gandalf para uma aventura
+              épica rumo à Montanha Solitária, repleta de dragões e tesouros.
+            </td>
+            <td><a href="detalhe-hobbit.html" class="link-detalhe" aria-label="Ver detalhes de O Hobbit">Ver detalhes</a></td>
+          </tr>
+
+          <tr>
+            <td><img src="https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg?default=false" alt="1984" class="capa-miniatura"></td>
+            <td><span class="titulo-livro">1984</span></td>
+            <td class="autor-livro">George Orwell</td>
+            <td class="autor-livro">Distopia</td>
+            <td class="descricao-resumo">
+              Em um futuro totalitário, Winston Smith vive sob o olhar onipresente do Grande
+              Irmão e se envolve em uma perigosa rebelião contra o regime.
+            </td>
+            <td><a href="detalhe-1984.html" class="link-detalhe" aria-label="Ver detalhes de 1984">Ver detalhes</a></td>
+          </tr>
+
+          <tr>
+            <td><img src="https://covers.openlibrary.org/b/isbn/9788535914849-L.jpg?default=false" alt="Dom Casmurro" class="capa-miniatura"></td>
+            <td><span class="titulo-livro">Dom Casmurro</span></td>
+            <td class="autor-livro">Machado de Assis</td>
+            <td class="autor-livro">Romance</td>
+            <td class="descricao-resumo">
+              Bentinho narra a própria história com memória seletiva — obra-prima do
+              Realismo brasileiro sobre ciúme, verdade e narradores não confiáveis.
+            </td>
+            <td><a href="detalhe-dom-casmurro.html" class="link-detalhe" aria-label="Ver detalhes de Dom Casmurro">Ver detalhes</a></td>
+          </tr>
+
+          <tr>
+            <td><img src="https://covers.openlibrary.org/b/isbn/9780805210408-L.jpg?default=false" alt="O Processo" class="capa-miniatura"></td>
+            <td><span class="titulo-livro">O Processo</span></td>
+            <td class="autor-livro">Franz Kafka</td>
+            <td class="autor-livro">Absurdismo</td>
+            <td class="descricao-resumo">
+              Josef K. é preso sem saber o motivo e julgado por um tribunal opaco e labiríntico —
+              metáfora perturbadora sobre burocracia e culpa.
+            </td>
+            <td><a href="detalhe-o-processo.html" class="link-detalhe" aria-label="Ver detalhes de O Processo">Ver detalhes</a></td>
+          </tr>
+
+          <tr>
+            <td><img src="https://covers.openlibrary.org/b/isbn/9780553213690-L.jpg?default=false" alt="A Metamorfose" class="capa-miniatura"></td>
+            <td><span class="titulo-livro">A Metamorfose</span></td>
+            <td class="autor-livro">Franz Kafka</td>
+            <td class="autor-livro">Absurdismo</td>
+            <td class="descricao-resumo">
+              Gregor Samsa acorda transformado em um inseto monstruoso — novela sobre
+              alienação, desumanização e o desmoronamento dos laços familiares.
+            </td>
+            <td><a href="detalhe-metamorfose.html" class="link-detalhe" aria-label="Ver detalhes de A Metamorfose">Ver detalhes</a></td>
+          </tr>
+
+          <tr>
+            <td><img src="https://covers.openlibrary.org/b/isbn/9780805211061-L.jpg?default=false" alt="O Castelo" class="capa-miniatura"></td>
+            <td><span class="titulo-livro">O Castelo</span></td>
+            <td class="autor-livro">Franz Kafka</td>
+            <td class="autor-livro">Absurdismo</td>
+            <td class="descricao-resumo">
+              K. chega a uma aldeia para trabalhar como agrimensor, mas jamais consegue acesso
+              ao Castelo que o contratou — romance inacabado sobre o absurdo da existência.
+            </td>
+            <td><a href="detalhe-o-castelo.html" class="link-detalhe" aria-label="Ver detalhes de O Castelo">Ver detalhes</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <strong>Catálogo de Livros</strong> — Projeto acadêmico UniALFA</p>
+  </footer>
+
+</body>
+</html>
