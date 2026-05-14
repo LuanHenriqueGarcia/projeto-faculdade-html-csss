@@ -4,10 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Catálogo de Livros — explore e gerencie sua coleção de livros favoritos.">
+  <link rel="shortcut icon" href="e-books.png" type="image/x-icon">
   <title>Catálogo de Livros — Home</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <a id="ver" aria-hidden="true" tabindex="-1"></a>
+
+  <div class="intro-overlay" role="dialog" aria-modal="true" aria-label="Apresentação do projeto">
+    <div class="intro-conteudo">
+      <span class="intro-badge">Atividade do 2º Bimestre</span>
+      <h1 class="intro-titulo">Catálogo<span>.</span>Livros</h1>
+      <div class="intro-divider" aria-hidden="true"></div>
+      <p class="intro-autores-label">Desenvolvido por</p>
+      <ul class="intro-nomes">
+        <li>Luan Henrique Garcia Todero</li>
+        <li>Giovanni Henrique Honorio Guimarães</li>
+      </ul>
+      <a href="#ver" class="btn-intro" aria-label="Acessar o catálogo de livros">
+        Ver projeto &rsaquo;
+      </a>
+    </div>
+  </div>
 
   <header>
     <div class="header-inner">
@@ -15,17 +34,33 @@
       <nav aria-label="Navegação principal">
         <ul>
           <li><a href="index.html" class="ativo">Home</a></li>
-          <li><a href="cadastrar.html">Cadastrar livro</a></li>
+          <li><a href="html/cadastrar.html">Cadastrar livro</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
+    <input type="radio" name="filtro" id="filtro-todos" class="filtro-radio" checked>
+    <input type="radio" name="filtro" id="filtro-absurdismo" class="filtro-radio">
+    <input type="radio" name="filtro" id="filtro-fantasia" class="filtro-radio">
+    <input type="radio" name="filtro" id="filtro-distopia" class="filtro-radio">
+    <input type="radio" name="filtro" id="filtro-romance" class="filtro-radio">
 
     <section class="secao-hero" aria-label="Bem-vindo ao catálogo">
       <h1>Sua biblioteca<br>em um só lugar</h1>
       <p>Explore, cadastre e acompanhe seus livros favoritos.</p>
+    </section>
+
+    <section class="secao-generos" aria-label="Gêneros disponíveis no acervo">
+      <h2>Gêneros do acervo</h2>
+      <ol class="lista-generos">
+        <li class="item-todos"><label for="filtro-todos"><span class="genero-nome">Todos</span> <span class="genero-contagem">6 títulos</span></label></li>
+        <li><label for="filtro-absurdismo"><span class="genero-nome">Absurdismo</span> <span class="genero-contagem">3 títulos</span></label></li>
+        <li><label for="filtro-fantasia"><span class="genero-nome">Fantasia</span> <span class="genero-contagem">1 título</span></label></li>
+        <li><label for="filtro-distopia"><span class="genero-nome">Distopia</span> <span class="genero-contagem">1 título</span></label></li>
+        <li><label for="filtro-romance"><span class="genero-nome">Romance</span> <span class="genero-contagem">1 título</span></label></li>
+      </ol>
     </section>
 
     <section class="secao-lista" aria-label="Lista de livros cadastrados">
@@ -44,76 +79,76 @@
         </thead>
         <tbody>
 
-          <tr>
-            <td><img src="hobbit.png" alt="O Hobbit" class="capa-miniatura"></td>
-            <td><span class="titulo-livro">O Hobbit</span></td>
-            <td class="autor-livro">J.R.R. Tolkien</td>
-            <td class="autor-livro">Fantasia</td>
-            <td class="descricao-resumo">
+          <tr class="genero-fantasia">
+            <td data-label="Capa"><img src="https://m.media-amazon.com/images/I/91M9xPIf10L.jpg" alt="O Hobbit" class="capa-miniatura"></td>
+            <td data-label="Título"><span class="titulo-livro">O Hobbit</span></td>
+            <td data-label="Autor" class="autor-livro">J.R.R. Tolkien</td>
+            <td data-label="Gênero" class="autor-livro">Fantasia</td>
+            <td data-label="Descrição" class="descricao-resumo">
               Bilbo Bolseiro, um hobbit tranquilo, é recrutado por Gandalf para uma aventura
               épica rumo à Montanha Solitária, repleta de dragões e tesouros.
             </td>
-            <td><a href="detalhe-hobbit.html" class="link-detalhe" aria-label="Ver detalhes de O Hobbit">Ver detalhes</a></td>
+            <td data-label="Detalhes"><a href="html/detalhe-hobbit.html" class="link-detalhe" aria-label="Ver detalhes de O Hobbit">Ver detalhes</a></td>
           </tr>
 
-          <tr>
-            <td><img src="https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg?default=false" alt="1984" class="capa-miniatura"></td>
-            <td><span class="titulo-livro">1984</span></td>
-            <td class="autor-livro">George Orwell</td>
-            <td class="autor-livro">Distopia</td>
-            <td class="descricao-resumo">
+          <tr class="genero-distopia">
+            <td data-label="Capa"><img src="https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg?default=false" alt="1984" class="capa-miniatura"></td>
+            <td data-label="Título"><span class="titulo-livro">1984</span></td>
+            <td data-label="Autor" class="autor-livro">George Orwell</td>
+            <td data-label="Gênero" class="autor-livro">Distopia</td>
+            <td data-label="Descrição" class="descricao-resumo">
               Em um futuro totalitário, Winston Smith vive sob o olhar onipresente do Grande
               Irmão e se envolve em uma perigosa rebelião contra o regime.
             </td>
-            <td><a href="detalhe-1984.html" class="link-detalhe" aria-label="Ver detalhes de 1984">Ver detalhes</a></td>
+            <td data-label="Detalhes"><a href="html/detalhe-1984.html" class="link-detalhe" aria-label="Ver detalhes de 1984">Ver detalhes</a></td>
           </tr>
 
-          <tr>
-            <td><img src="https://covers.openlibrary.org/b/isbn/9788535914849-L.jpg?default=false" alt="Dom Casmurro" class="capa-miniatura"></td>
-            <td><span class="titulo-livro">Dom Casmurro</span></td>
-            <td class="autor-livro">Machado de Assis</td>
-            <td class="autor-livro">Romance</td>
-            <td class="descricao-resumo">
+          <tr class="genero-romance">
+            <td data-label="Capa"><img src="https://covers.openlibrary.org/b/isbn/9788535914849-L.jpg?default=false" alt="Dom Casmurro" class="capa-miniatura"></td>
+            <td data-label="Título"><span class="titulo-livro">Dom Casmurro</span></td>
+            <td data-label="Autor" class="autor-livro">Machado de Assis</td>
+            <td data-label="Gênero" class="autor-livro">Romance</td>
+            <td data-label="Descrição" class="descricao-resumo">
               Bentinho narra a própria história com memória seletiva — obra-prima do
               Realismo brasileiro sobre ciúme, verdade e narradores não confiáveis.
             </td>
-            <td><a href="detalhe-dom-casmurro.html" class="link-detalhe" aria-label="Ver detalhes de Dom Casmurro">Ver detalhes</a></td>
+            <td data-label="Detalhes"><a href="html/detalhe-dom-casmurro.html" class="link-detalhe" aria-label="Ver detalhes de Dom Casmurro">Ver detalhes</a></td>
           </tr>
 
-          <tr>
-            <td><img src="https://covers.openlibrary.org/b/isbn/9780805210408-L.jpg?default=false" alt="O Processo" class="capa-miniatura"></td>
-            <td><span class="titulo-livro">O Processo</span></td>
-            <td class="autor-livro">Franz Kafka</td>
-            <td class="autor-livro">Absurdismo</td>
-            <td class="descricao-resumo">
+          <tr class="genero-absurdismo">
+            <td data-label="Capa"><img src="https://covers.openlibrary.org/b/isbn/9780805210408-L.jpg?default=false" alt="O Processo" class="capa-miniatura"></td>
+            <td data-label="Título"><span class="titulo-livro">O Processo</span></td>
+            <td data-label="Autor" class="autor-livro">Franz Kafka</td>
+            <td data-label="Gênero" class="autor-livro">Absurdismo</td>
+            <td data-label="Descrição" class="descricao-resumo">
               Josef K. é preso sem saber o motivo e julgado por um tribunal opaco e labiríntico —
               metáfora perturbadora sobre burocracia e culpa.
             </td>
-            <td><a href="detalhe-o-processo.html" class="link-detalhe" aria-label="Ver detalhes de O Processo">Ver detalhes</a></td>
+            <td data-label="Detalhes"><a href="html/detalhe-o-processo.html" class="link-detalhe" aria-label="Ver detalhes de O Processo">Ver detalhes</a></td>
           </tr>
 
-          <tr>
-            <td><img src="https://covers.openlibrary.org/b/isbn/9780553213690-L.jpg?default=false" alt="A Metamorfose" class="capa-miniatura"></td>
-            <td><span class="titulo-livro">A Metamorfose</span></td>
-            <td class="autor-livro">Franz Kafka</td>
-            <td class="autor-livro">Absurdismo</td>
-            <td class="descricao-resumo">
+          <tr class="genero-absurdismo">
+            <td data-label="Capa"><img src="https://covers.openlibrary.org/b/isbn/9780553213690-L.jpg?default=false" alt="A Metamorfose" class="capa-miniatura"></td>
+            <td data-label="Título"><span class="titulo-livro">A Metamorfose</span></td>
+            <td data-label="Autor" class="autor-livro">Franz Kafka</td>
+            <td data-label="Gênero" class="autor-livro">Absurdismo</td>
+            <td data-label="Descrição" class="descricao-resumo">
               Gregor Samsa acorda transformado em um inseto monstruoso — novela sobre
               alienação, desumanização e o desmoronamento dos laços familiares.
             </td>
-            <td><a href="detalhe-metamorfose.html" class="link-detalhe" aria-label="Ver detalhes de A Metamorfose">Ver detalhes</a></td>
+            <td data-label="Detalhes"><a href="html/detalhe-metamorfose.html" class="link-detalhe" aria-label="Ver detalhes de A Metamorfose">Ver detalhes</a></td>
           </tr>
 
-          <tr>
-            <td><img src="https://covers.openlibrary.org/b/isbn/9780805211061-L.jpg?default=false" alt="O Castelo" class="capa-miniatura"></td>
-            <td><span class="titulo-livro">O Castelo</span></td>
-            <td class="autor-livro">Franz Kafka</td>
-            <td class="autor-livro">Absurdismo</td>
-            <td class="descricao-resumo">
+          <tr class="genero-absurdismo">
+            <td data-label="Capa"><img src="https://covers.openlibrary.org/b/isbn/9780805211061-L.jpg?default=false" alt="O Castelo" class="capa-miniatura"></td>
+            <td data-label="Título"><span class="titulo-livro">O Castelo</span></td>
+            <td data-label="Autor" class="autor-livro">Franz Kafka</td>
+            <td data-label="Gênero" class="autor-livro">Absurdismo</td>
+            <td data-label="Descrição" class="descricao-resumo">
               K. chega a uma aldeia para trabalhar como agrimensor, mas jamais consegue acesso
               ao Castelo que o contratou — romance inacabado sobre o absurdo da existência.
             </td>
-            <td><a href="detalhe-o-castelo.html" class="link-detalhe" aria-label="Ver detalhes de O Castelo">Ver detalhes</a></td>
+            <td data-label="Detalhes"><a href="html/detalhe-o-castelo.html" class="link-detalhe" aria-label="Ver detalhes de O Castelo">Ver detalhes</a></td>
           </tr>
 
         </tbody>
